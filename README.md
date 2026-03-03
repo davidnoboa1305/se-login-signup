@@ -1,0 +1,1 @@
+This a project for my ICSI 418Y Software Engineering Class. Simple login and signup webpages, no backend or functionalities added.
