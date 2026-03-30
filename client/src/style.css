@@ -10,9 +10,20 @@ body {
     align-items: center;
 }
 
+#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: 111827;
+}
+
 .container{
-    width: 50%;
-    padding: 10px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,19 +32,25 @@ body {
     border-radius: 15px;
 }
 
-label {
-    margin-bottom: 5px;
-    color: #6B7280;
+form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
 }
-h2 {
+
+input {
+    padding: 10px;
     margin-bottom: 20px;
-    color: 111827;
+    border: 1px solid #D1D5DB;
+    border-radius: 5px;
 }
+
 
 .button{
     background-color: #3B82F6;
     color: white;
     padding: 10px 20px;
+    margin-bottom: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
