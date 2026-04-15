@@ -1,7 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "./style.css";
+import "./form.css";
+import "./style.css"
 
 function Signup() {
 
@@ -9,6 +10,7 @@ function Signup() {
     const [lName, setLName] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+
 
     const handleSignUp = (event) => {
         event.preventDefault();
@@ -34,6 +36,7 @@ function Signup() {
                         value={fName}
                         onChange={(e) => setFName(e.target.value)}
                         placeholder="First Name"
+                        className="input"
                     />
 
                     <input
@@ -41,6 +44,7 @@ function Signup() {
                         value={lName}
                         onChange={(e) => setLName(e.target.value)}
                         placeholder="Last Name"
+                        className="input"
                     />
 
                     <input
@@ -48,6 +52,7 @@ function Signup() {
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         placeholder="Username"
+                        className="input"
                     />
 
                     <input
@@ -55,6 +60,7 @@ function Signup() {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder="Password"
+                        className="input"
                     />
 
                     <button className="button" type="submit">Signup</button>

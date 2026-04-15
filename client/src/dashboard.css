@@ -1,0 +1,37 @@
+.create-project-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensures it sits on top of everything */
+}
+
+.create-project-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.create-project-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.project-link {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.teams-button {
+    background-color: #10B981; /* Green */
+}

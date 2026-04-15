@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+import "./form.css";
 import "./style.css";
 
 function Login() {
@@ -9,16 +10,24 @@ function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleLogin = (event) => {
-        event.preventDefault();
+const handleLogin = (event) => {
+    event.preventDefault();
 
-        axios.get("http://localhost:9000/getUser", {
+    axios.get("http://localhost:9000/getUser", {
+        params: {
             username: username,
             password: password
-        })
-        .then(() => alert("User logged in"))
-        .catch(() => alert("Error logging in"));
-    };
+        }
+    })
+    .then((res) => {
+        if (res.data) {
+            alert("User logged in");
+        } else {
+            alert("Invalid credentials");
+        }
+    })
+    .catch(() => alert("Error logging in"));
+};
 
     return (
         <>
@@ -30,6 +39,7 @@ function Login() {
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         placeholder="Username"
+                        className="input"
                     />
 
                     <input
@@ -37,11 +47,12 @@ function Login() {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder="Password"
+                        className="input"
                     />
 
                     <button type="submit" className="button">Login</button>
                 </form>
-                <p className="redirect">Don't have an account? <Link to="/">Signup here</Link></p>
+                <p className="redirect">Don't have an account? <Link to="/signup">Signup here</Link></p>
             </div>
         </>
     );

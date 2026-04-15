@@ -11,47 +11,13 @@ body {
 }
 
 #root {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-h2 {
-    margin-bottom: 20px;
-    color: 111827;
-}
-
-.container{
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #FFFFFF;
-    border-radius: 15px;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-}
-
-input {
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #D1D5DB;
-    border-radius: 5px;
-}
-
-
-.button{
-    background-color: #3B82F6;
-    color: white;
-    padding: 10px 20px;
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+a {
+    text-decoration: none;
 }

@@ -1,0 +1,42 @@
+.teams-container {
+    width: 90%;
+    max-width: 800px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.teams-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #111827;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.no-teams {
+    color: #6B7280;
+    margin-top: 20px;
+}
+
+.team-card {
+    width: 70%;
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.team-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1F2937;
+}
+
