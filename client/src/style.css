@@ -21,3 +21,50 @@ body {
 a {
     text-decoration: none;
 }
+
+h2 {
+    margin-bottom: 20px;
+    color: 111827;
+}
+
+ul{
+    padding: 0;
+}
+
+li{
+    list-style: none;
+}
+
+.container{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.input {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #D1D5DB;
+    border-radius: 5px;
+}
+
+
+.button{
+    margin: 10px 0px;
+    background-color: #3B82F6;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

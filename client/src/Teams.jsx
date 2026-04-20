@@ -25,6 +25,13 @@ function Teams() {
                 teams.map((team, index) => (
                     <div key={index} className="team-card">
                         <h3 className="team-title">{team.team_name}</h3>
+                        <ul>
+                            {team.members?.map((member) => (
+                                <li key={member._id}>
+                                    {member.fName} {member.lName}
+                                </li>
+                            ))}
+                        </ul>
                     </div>
                 ))
             )}

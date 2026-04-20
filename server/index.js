@@ -46,7 +46,7 @@ app.get('/getUsers', async (req, res) => {
 
 app.get('/getTeams', async (req, res) => {
     try {
-        const teamList = await Team.find({}, {team_name:1});
+        const teamList = await Team.find({}).populate("members");        
         res.send(teamList)
     }
     catch (error) {

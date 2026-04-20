@@ -1,9 +1,9 @@
 import axios from "axios";
-import { Link } from "react-router-dom";
-import "./form.css";
+import { useNavigate } from "react-router-dom";
 import "./style.css";
 import "./dashboard.css";
 import React, { useState, useEffect } from 'react';
+import Select from 'react-select';
 
 function Dashboard() {
     const [isCreateProjectOpen, setIsCreateProjectOpen] = useState(false);
@@ -25,6 +25,10 @@ function Dashboard() {
     const [users, setUsers] = useState([])
     const [teams, setTeams] = useState([])
 
+    const [selectedUsers, setSelectedUsers] = useState([])
+
+    const navigate = useNavigate()
+
     const handleCreateProject = (event) => {
         event.preventDefault();
 
@@ -41,13 +45,18 @@ function Dashboard() {
 
     const handleCreateTeam = (event) => {
         event.preventDefault();
-
+        const userIDs = selectedUsers.map(user => user.value);
         axios.post("http://localhost:9000/createTeam", {
-            team_name: teamName
+            team_name: teamName,
+            members: userIDs
         })
         .then(() => {alert("Team created"); closeCreateTeam();})
         .catch(() => alert("Error creating team"));
     };
+    
+    const userOptions = users.map((user) => {
+        return {label: `${user.fName} ${user.lName}`, value: user._id}
+    })
 
     useEffect(() => {
         axios.get('http://localhost:9000/getUsers')
@@ -69,7 +78,6 @@ function Dashboard() {
         })
     }, []);
 
-
     return (
         <>
             <h1>Project Manager</h1>
@@ -78,14 +86,14 @@ function Dashboard() {
             <button onClick={openCreateProject} className="button">
                 Create Project
             </button>
-            <button className="button">
-                <Link to="/projects" className="project-link">View Projects</Link>
+            <button onClick={() => navigate("/Projects")} className="button">
+                View Projects
             </button>
             <button onClick={openCreateTeam} className="button teams-button">
                 Create Team
             </button>
-            <button className="button teams-button">
-                <Link to="/teams" className="project-link">View Teams</Link>
+            <button onClick={() => navigate("/Teams")} className="button teams-button">
+                View Teams
             </button>
 
 
@@ -163,10 +171,25 @@ function Dashboard() {
                                 placeholder="Enter name..." 
                                 value={teamName}
                                 onChange={(e) => setTeamName(e.target.value)}
-                                className="input" />
+                                className="input"
+                                required
+                            />
+                            <label>Assign Members:</label>
+                            <Select
+                                isMulti
+                                value={selectedUsers}
+                                onChange={setSelectedUsers}
+                                options={userOptions}
+                                className="input"
+                            />
+
                             <div className="create-project-actions">
                                 <button type="submit" className="button">Save</button>
-                                <button type="button" onClick={closeCreateTeam} className="button secondary">
+                                <button 
+                                    type="button" 
+                                    onClick={closeCreateTeam} 
+                                    className="button secondary"
+                                >
                                     Cancel
                                 </button>
                             </div>
